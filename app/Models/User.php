@@ -12,6 +12,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *
@@ -40,6 +53,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+//        'password' => 'hashed',
     ];
+
+//    /**
+//     *
+//     * The model's default values for attributes.
+//     *
+//     * @var array
+//     */
+//    protected $attributes = [
+//        'delayed' => false,
+//    ];
 }

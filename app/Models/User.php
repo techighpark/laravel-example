@@ -12,57 +12,59 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-
     /**
-     * Indicates if the model's ID is auto-incrementing.
+     * ---------------------------------------------------------------------------------
+     * ??
+     * ---------------------------------------------------------------------------------
+     */
+//    const CREATED_AT = 'creation_date';
+    /**
+     * ---------------------------------------------------------------------------------
+     * ??
+     * ---------------------------------------------------------------------------------
+     */
+//    const UPDATED_AT = 'updated_date';
+    /**
+     * ---------------------------------------------------------------------------------
+     * The primary key associated with the table.
+     * ---------------------------------------------------------------------------------
      *
      * @var bool
      */
     public $incrementing = false;
     /**
+     * ---------------------------------------------------------------------------------
+     * table name
+     * ---------------------------------------------------------------------------------
+     */
+    protected $table = 'users';
+    /**
+     * ---------------------------------------------------------------------------------
      * The primary key associated with the table.
+     * ---------------------------------------------------------------------------------
+     * @var string
+     */
+    protected $primaryKey = 'user_id';
+    /**
+     * ---------------------------------------------------------------------------------
+     * The data type of the auto-incrementing ID.
+     * ---------------------------------------------------------------------------------
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $keyType = 'string';
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * ---------------------------------------------------------------------------------
+     * ??
+     * ---------------------------------------------------------------------------------
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $attributes = [
+        'remember_token' => 'false',
     ];
-
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     * ---------------------------------------------------------------------------------
+     * 대량 할당 불허 컬럼 (공백: 모두 허용)
+     * ---------------------------------------------------------------------------------
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-//        'password' => 'hashed',
-    ];
-
-//    /**
-//     *
-//     * The model's default values for attributes.
-//     *
-//     * @var array
-//     */
-//    protected $attributes = [
-//        'delayed' => false,
-//    ];
+    protected $guarded = [];
 }
